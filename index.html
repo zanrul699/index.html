@@ -2,82 +2,105 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Hadiah Buat Kamu!</title>
+  <title>Profil WA Arul</title>
   <style>
     body {
+      background: #121212;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
-      background-color: #ffdddd;
-      font-family: sans-serif;
       overflow: hidden;
     }
 
-    h1 {
+    .card {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,255,150,0.3);
       text-align: center;
-      margin-top: 50px;
-      font-size: 2em;
+      width: 90%;
+      max-width: 350px;
+      margin: 100px auto;
+      position: relative;
+      z-index: 2;
     }
 
-    .btn {
-      position: absolute;
-      padding: 15px 30px;
-      font-size: 16px;
-      background-color: #ff4d4d;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00ffcc;
+      margin-bottom: 15px;
+      animation: flicker 1s infinite alternate;
     }
 
-    .popup {
-      position: fixed;
-      top: 30%;
-      left: 20%;
-      width: 60%;
-      background: white;
-      border: 2px solid red;
-      padding: 20px;
-      text-align: center;
+    @keyframes flicker {
+      0% { box-shadow: 0 0 5px #ff4d00; }
+      100% { box-shadow: 0 0 15px #ff4d00; }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #00ffcc;
+    }
+
+    .status {
+      font-style: italic;
+      color: #aaa;
+      margin: 10px 0;
+    }
+
+    .number {
+      background: #00ffcc;
+      padding: 5px 10px;
+      border-radius: 10px;
+      color: #000;
       font-weight: bold;
-      z-index: 999;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    /* Efek Salju */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: #fff;
+      font-size: 1em;
+      user-select: none;
+      z-index: 1;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>Selamat! Kamu menang hadiah!</h1>
-  <button class="btn" id="trickyBtn">Klik di sini</button>
 
+  <!-- Efek Salju -->
   <script>
-    // Tombol loncat-loncat
-    const btn = document.getElementById("trickyBtn");
-    btn.addEventListener("mouseover", () => {
-      btn.style.top = Math.random() * (window.innerHeight - 50) + "px";
-      btn.style.left = Math.random() * (window.innerWidth - 100) + "px";
-    });
-
-    // Popup muncul terus
-    function showPopup() {
-      const popup = document.createElement("div");
-      popup.className = "popup";
-      popup.innerText = "wkwkwkw percobaan web aku sendiri, terimakasih udah ngeklik😆";
-      document.body.appendChild(popup);
-      setTimeout(() => popup.remove(), 2000);
+    const snowEmoji = ['❄️','❅','✼','✻'];
+    for (let i = 0; i < 40; i++) {
+      const snow = document.createElement('div');
+      snow.className = 'snowflake';
+      snow.innerText = snowEmoji[Math.floor(Math.random() * snowEmoji.length)];
+      snow.style.left = Math.random() * 100 + 'vw';
+      snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+      document.body.appendChild(snow);
     }
-
-    btn.addEventListener("click", () => {
-      showPopup();
-      if (navigator.vibrate) navigator.vibrate(200);
-    });
-
-    // Layar goyang
-    setInterval(() => {
-      const x = Math.random() * 10 - 5;
-      const y = Math.random() * 10 - 5;
-      document.body.style.transform = `translate(${x}px, ${y}px)`;
-    }, 100);
-
-    // Atur posisi tombol pertama kali
-    btn.style.top = "200px";
-    btn.style.left = "40%";
   </script>
+
+  <div class="card">
+    <img class="profile-img" src="foto.jpg" alt="Foto Profil">
+    <h2>ArulboyS 🔥</h2>
+    <p class="status">“Tauh Ah males ajg🗿.”</p>
+    <div class="number">+62 8311-0511-968</div>
+  </div>
+
 </body>
 </html>
