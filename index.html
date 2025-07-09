@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lunar.mi | Buket & Aksesoris</title>
+  <style>
+    :root {
+      --pink: #ffb6c1;
+      --dark: #121212;
+      --light-dark: #1e1e1e;
+      --text: #e0e0e0;
+    }body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #121212, #1a1a1a);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.hero img {
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--pink);
+  position: relative;
+}
+
+.hero h1 {
+  color: var(--pink);
+  margin: 10px 0 5px;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.section h2 {
+  color: var(--pink);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.product {
+  background: var(--light-dark);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product p {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.form-order input, .form-order textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #2b2b2b;
+  color: white;
+}
+
+.form-order button {
+  background: var(--pink);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wa-btn {
+  display: block;
+  background: #25D366;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 30px auto 10px;
+  max-width: 300px;
+}
+
+.testimonials {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.testimonial {
+  min-width: 200px;
+  background: var(--light-dark);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ccc;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <img src="logo.jpg" alt="Lunar.mi Logo" />
+      <h1>Lunar.mi</h1>
+      <p>Preloved / New | Buket | Aksesoris - PO Only | Jambi</p>
+    </div><div class="section">
+  <h2>Produk Unggulan</h2>
+  <div class="products">
+    <div class="product">
+      <img src="buket1.jpg" alt="Buket Snack & Bunga">
+      <p>Buket Snack & Bunga</p>
+    </div>
+    <div class="product">
+      <img src="buket2.jpg" alt="Buket Coklat">
+      <p>Buket Coklat Mini</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Testimoni</h2>
+  <div class="testimonials">
+    <div class="testimonial">"Buketnya lucu banget! Suka 💕"</div>
+    <div class="testimonial">"Pesan by request, hasilnya memuaskan. Makasih yaa!"</div>
+    <div class="testimonial">"Ownernya ramah dan cepat tanggap. Recommended 👍"</div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Form Pemesanan</h2>
+  <form class="form-order" onsubmit="handleOrder(event)">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="text" id="alamat" placeholder="Alamat / Lokasi COD" required>
+    <input type="text" id="produk" placeholder="Produk yang Dipesan" required>
+    <textarea id="catatan" rows="4" placeholder="Catatan Tambahan (opsional)"></textarea>
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+</div>
+
+<a class="wa-btn" href="https://wa.me/6285123193035" target="_blank">💬 Chat via WhatsApp</a>
+
+<div class="footer">
+  &copy; 2025 Lunar.mi | Powered by Lunar Team | ASITE
+</div>
+
+  </div>  <script>
+    function handleOrder(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const alamat = document.getElementById("alamat").value;
+      const produk = document.getElementById("produk").value;
+      const catatan = document.getElementById("catatan").value;
+      const pesan = `Halo, saya mau pesan:\n\nNama: ${nama}\nAlamat: ${alamat}\nProduk: ${produk}\nCatatan: ${catatan}`;
+      const url = `https://wa.me/6285123193035?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+  </script></body>
+</html>
