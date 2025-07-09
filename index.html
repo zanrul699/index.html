@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lunar.mi | Buket & Aksesoris</title>
+  <style>
+    :root {
+      --pink: #ffb6c1;
+      --dark: #121212;
+      --light-dark: #1e1e1e;
+      --text: #e0e0e0;
+    }body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #121212, #1a1a1a);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent);
+  z-index: 0;
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.05; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+.hero img {
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--pink);
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  color: var(--pink);
+  margin: 10px 0 5px;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.section h2 {
+  color: var(--pink);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.product {
+  background: var(--light-dark);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--pink);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product p {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.form-order input, .form-order textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #2b2b2b;
+  color: white;
+}
+
+.form-order button {
+  background: var(--pink);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wa-btn {
+  display: block;
+  background: #25D366;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 30px auto 10px;
+  max-width: 300px;
+}
+
+.testimonials {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.testimonial {
+  min-width: 200px;
+  background: var(--light-dark);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ccc;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh); }
+}
+
+  </style>
+</head>
+<body>
+  <div id="snow"></div>
+  <div class="container">
+    <div class="hero reveal">
+      <img src="logo.jpg" alt="Lunar.mi Logo" />
+      <h1 id="typewriter"></h1>
+      <p>Preloved / New | Buket | Aksesoris - PO Only | Jambi</p>
+    </div><div class="section reveal">
+  <h2>Produk Unggulan</h2>
+  <div class="products">
+    <div class="product">
+      <img src="buket1.jpg" alt="Buket Snack & Bunga">
+      <p>Buket Snack Beragam</p>
+    </div>
+    <div class="product">
+      <img src="buket2.jpg" alt="Buket Coklat">
+      <p>Buket Coklat Beragam</p>
+    </div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <h2>Testimoni</h2>
+  <div class="testimonials">
+    <div class="testimonial">"Buketnya lucu banget! Suka 💕"</div>
+    <div class="testimonial">"Pesan by request, hasilnya memuaskan. Makasih yaa!"</div>
+    <div class="testimonial">"Ownernya ramah dan cepat tanggap. Recommended 👍"</div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <h2>Form Pemesanan</h2>
+  <form class="form-order" onsubmit="handleOrder(event)">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="text" id="alamat" placeholder="Alamat / Lokasi COD" required>
+    <input type="text" id="produk" placeholder="Produk yang Dipesan" required>
+    <textarea id="catatan" rows="4" placeholder="Catatan Tambahan (opsional)"></textarea>
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+</div>
+
+<a class="wa-btn reveal" href="https://wa.me/6285123193035" target="_blank">💬 Chat via WhatsApp</a>
+
+<div class="footer">
+  &copy; 2025 Lunar.mi | Powered by Lunar Team | ASITEV1
+</div>
+
+  </div>  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    window.addEventListener("scroll", () => {
+      for (let el of reveals) {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.classList.add("active");
+      }
+    });
+
+    const text = "Lunar.mi";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 150);
+      }
+    }
+    type();
+<!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lunar.mi | Buket & Aksesoris</title>
+  <style>
+    :root {
+      --pink: #ffb6c1;
+      --dark: #121212;
+      --light-dark: #1e1e1e;
+      --text: #e0e0e0;
+    }body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #121212, #1a1a1a);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent);
+  z-index: 0;
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 0.05; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+.hero img {
+  width: 120px;
+  border-radius: 50%;
+  border: 3px solid var(--pink);
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  color: var(--pink);
+  margin: 10px 0 5px;
+}
+
+.hero p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.section {
+  margin-top: 30px;
+}
+
+.section h2 {
+  color: var(--pink);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.product {
+  background: var(--light-dark);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--pink);
+}
+
+.product img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product p {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.form-order input, .form-order textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #2b2b2b;
+  color: white;
+}
+
+.form-order button {
+  background: var(--pink);
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.wa-btn {
+  display: block;
+  background: #25D366;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 30px auto 10px;
+  max-width: 300px;
+}
+
+.testimonials {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.testimonial {
+  min-width: 200px;
+  background: var(--light-dark);
+  border-radius: 10px;
+  padding: 15px;
+  color: #ccc;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-top: 40px;
+  padding-bottom: 30px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes fall {
+  to { transform: translateY(100vh); }
+}
+
+  </style>
+</head>
+<body>
+  <div id="snow"></div>
+  <div class="container">
+    <div class="hero reveal">
+      <img src="logo.jpg" alt="Lunar.mi Logo" />
+      <h1 id="typewriter"></h1>
+      <p>Preloved / New | Buket | Aksesoris - PO Only | Jambi</p>
+    </div><div class="section reveal">
+  <h2>Produk Unggulan</h2>
+  <div class="products">
+    <div class="product">
+      <img src="buket1.jpg" alt="Buket Snack & Bunga">
+      <p>Buket Snack & Bunga</p>
+    </div>
+    <div class="product">
+      <img src="buket2.jpg" alt="Buket Coklat">
+      <p>Buket Coklat Mini</p>
+    </div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <h2>Testimoni</h2>
+  <div class="testimonials">
+    <div class="testimonial">"Buketnya lucu banget! Suka 💕"</div>
+    <div class="testimonial">"Pesan by request, hasilnya memuaskan. Makasih yaa!"</div>
+    <div class="testimonial">"Ownernya ramah dan cepat tanggap. Recommended 👍"</div>
+  </div>
+</div>
+
+<div class="section reveal">
+  <h2>Form Pemesanan</h2>
+  <form class="form-order" onsubmit="handleOrder(event)">
+    <input type="text" id="nama" placeholder="Nama Lengkap" required>
+    <input type="text" id="alamat" placeholder="Alamat / Lokasi COD" required>
+    <input type="text" id="produk" placeholder="Produk yang Dipesan" required>
+    <textarea id="catatan" rows="4" placeholder="Catatan Tambahan (opsional)"></textarea>
+    <button type="submit">Kirim Pesanan</button>
+  </form>
+</div>
+
+<a class="wa-btn reveal" href="https://wa.me/6285123193035" target="_blank">💬 Chat via WhatsApp</a>
+
+<div class="footer">
+  &copy; 2025 Lunar.mi | Powered by Lunar Team
+</div>
+
+  </div>  <script>
+    const reveals = document.querySelectorAll(".reveal");
+    window.addEventListener("scroll", () => {
+      for (let el of reveals) {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.classList.add("active");
+      }
+    });
+
+    const text = "Lunar.mi";
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, 150);
+      }
+    }
+    type();
+
+    function handleOrder(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const alamat = document.getElementById("alamat").value;
+      const produk = document.getElementById("produk").value;
+      const catatan = document.getElementById("catatan").value;
+      const pesan = `Halo, saya mau pesan:\n\nNama: ${nama}\nAlamat: ${alamat}\nProduk: ${produk}\nCatatan: ${catatan}`;
+      const url = `https://wa.me/6285123193035?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+
+    // Efek salju
+    let snow = document.getElementById('snow');
+    for (let i = 0; i < 50; i++) {
+      let flake = document.createElement('div');
+      flake.style.position = 'absolute';
+      flake.style.width = '8px';
+      flake.style.height = '8px';
+      flake.style.background = 'white';
+      flake.style.borderRadius = '50%';
+      flake.style.top = Math.random() * window.innerHeight + 'px';
+      flake.style.left = Math.random() * window.innerWidth + 'px';
+      flake.style.opacity = 0.3 + Math.random();
+      flake.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
+      snow.appendChild(flake);
+    }
+  </script></body>
+</html>
+    function handleOrder(e) {
+      e.preventDefault();
+      const nama = document.getElementById("nama").value;
+      const alamat = document.getElementById("alamat").value;
+      const produk = document.getElementById("produk").value;
+      const catatan = document.getElementById("catatan").value;
+      const pesan = `Halo, saya mau pesan:\n\nNama: ${nama}\nAlamat: ${alamat}\nProduk: ${produk}\nCatatan: ${catatan}`;
+      const url = `https://wa.me/6285123193035?text=${encodeURIComponent(pesan)}`;
+      window.open(url, '_blank');
+    }
+
+    // Efek salju
+    let snow = document.getElementById('snow');
+    for (let i = 0; i < 50; i++) {
+      let flake = document.createElement('div');
+      flake.style.position = 'absolute';
+      flake.style.width = '8px';
+      flake.style.height = '8px';
+      flake.style.background = 'white';
+      flake.style.borderRadius = '50%';
+      flake.style.top = Math.random() * window.innerHeight + 'px';
+      flake.style.left = Math.random() * window.innerWidth + 'px';
+      flake.style.opacity = 0.3 + Math.random();
+      flake.style.animation = `fall ${5 + Math.random() * 5}s linear infinite`;
+      snow.appendChild(flake);
+    }
+  </script></body>
+</html>
